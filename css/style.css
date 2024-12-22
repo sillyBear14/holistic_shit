@@ -1560,3 +1560,206 @@ body.zen-mode .audio-player {
     transparent
   );
 }
+
+/* FAQ Styling */
+.faq-section {
+  padding: 5rem 0;
+  background: var(--background);
+}
+
+.faq-grid {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.faq-item {
+  margin-bottom: 1rem;
+}
+
+.faq-question {
+  width: 100%;
+  text-align: left;
+  padding: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  color: var(--secondary);
+  cursor: pointer;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.faq-answer {
+  padding: 0 1rem;
+  max-height: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.faq-item.active .faq-answer {
+  padding: 1rem;
+  max-height: 500px;
+}
+
+.faq-icon {
+  transition: transform 0.3s ease;
+}
+
+.faq-item.active .faq-icon {
+  transform: rotate(45deg);
+}
+
+/* Testimonials Styling */
+.testimonials-section {
+  padding: 5rem 0;
+  background: linear-gradient(
+    to bottom,
+    var(--background),
+    rgba(255, 255, 255, 0.8)
+  );
+}
+
+.testimonials-carousel {
+  max-width: 800px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.testimonial-card {
+  padding: 2rem;
+  text-align: center;
+  margin: 1rem;
+}
+
+.testimonial-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 2rem;
+  color: var(--secondary);
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.testimonial-author img {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.author-info h3 {
+  font-size: 1.1rem;
+  color: var(--secondary);
+  margin-bottom: 0.2rem;
+}
+
+.author-info p {
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+.carousel-controls {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.prev-btn,
+.next-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: var(--secondary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.prev-btn:hover,
+.next-btn:hover {
+  color: var(--primary);
+  transform: scale(1.2);
+}
+
+/* Blog Preview Section */
+.blog-preview-section {
+  padding: 5rem 0;
+  background: linear-gradient(
+    to bottom,
+    var(--background),
+    rgba(255, 255, 255, 0.8)
+  );
+}
+
+.blog-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.blog-card {
+  overflow: hidden;
+  transition: transform 0.3s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-5px);
+}
+
+.blog-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.blog-content {
+  padding: 1.5rem;
+}
+
+.blog-date {
+  color: var(--accent);
+  font-size: 0.9rem;
+}
+
+.blog-card h3 {
+  margin: 0.5rem 0;
+  font-family: "Playfair Display", serif;
+  color: var(--secondary);
+}
+
+.read-more {
+  display: inline-block;
+  margin-top: 1rem;
+  color: var(--primary);
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.read-more:hover {
+  color: var(--secondary);
+}
+
+.text-center {
+  text-align: center;
+}
+
+.cta-button.secondary {
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+}
+
+.cta-button.secondary:hover {
+  background: var(--primary);
+  color: white;
+}

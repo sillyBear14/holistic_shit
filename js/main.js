@@ -280,6 +280,67 @@ document.addEventListener("DOMContentLoaded", () => {
     showNextQuote();
   }
 
+  // FAQ Functionality
+  function initFAQ() {
+    const faqItems = document.querySelectorAll(".faq-item");
+
+    faqItems.forEach((item) => {
+      const question = item.querySelector(".faq-question");
+
+      question.addEventListener("click", () => {
+        const isActive = item.classList.contains("active");
+
+        // Sluit alle andere items
+        faqItems.forEach((otherItem) => {
+          otherItem.classList.remove("active");
+          otherItem
+            .querySelector(".faq-question")
+            .setAttribute("aria-expanded", "false");
+        });
+
+        // Toggle huidige item
+        if (!isActive) {
+          item.classList.add("active");
+          question.setAttribute("aria-expanded", "true");
+        }
+      });
+    });
+  }
+
+  // Testimonials Carousel
+  function initTestimonials() {
+    const carousel = document.querySelector(".testimonials-carousel");
+    const cards = carousel.querySelectorAll(".testimonial-card");
+    const prevBtn = document.querySelector(".prev-btn");
+    const nextBtn = document.querySelector(".next-btn");
+    let currentIndex = 0;
+
+    function showCard(index) {
+      cards.forEach((card, i) => {
+        card.style.display = i === index ? "block" : "none";
+      });
+    }
+
+    function nextCard() {
+      currentIndex = (currentIndex + 1) % cards.length;
+      showCard(currentIndex);
+    }
+
+    function prevCard() {
+      currentIndex = (currentIndex - 1 + cards.length) % cards.length;
+      showCard(currentIndex);
+    }
+
+    prevBtn.addEventListener("click", prevCard);
+    nextBtn.addEventListener("click", nextCard);
+
+    // Auto-rotate elke 5 seconden
+    setInterval(nextCard, 5000);
+
+    // Start met eerste kaart
+    showCard(0);
+  }
+
   // Initialize all features
   createCursorTrail();
   updateScrollProgress();
@@ -287,6 +348,8 @@ document.addEventListener("DOMContentLoaded", () => {
   initZenMode();
   initBackToTop();
   initQuoteRotation();
+  initFAQ();
+  initTestimonials();
 
   const fadeInElements = document.querySelectorAll(".fade-in");
   const observer = new IntersectionObserver((entries) => {
