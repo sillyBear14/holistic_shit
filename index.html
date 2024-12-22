@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sarah van der Meer | Personal Coach</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Raleway:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <div class="welcome-overlay">
+      <div class="welcome-content">
+        <div class="special-offer">
+          <span class="offer-label">Speciale Aanbieding</span>
+          <h2>Speciale Aanbieding<br />Zomer Mindfulness Retreat</h2>
+          <div class="offer-details">
+            <p class="offer-date">15 - 17 Juli 2025</p>
+            <p class="offer-price">
+              <span class="original-price">€597</span>
+              <span class="new-price">€397</span>
+            </p>
+          </div>
+          <ul class="offer-features">
+            <li>2 dagen intensieve mindfulness training</li>
+            <li>Luxe accommodatie inbegrepen</li>
+            <li>Persoonlijk ontwikkelingsplan</li>
+            <li>Gezonde maaltijden & wellness</li>
+          </ul>
+          <p class="offer-timer">
+            Deze aanbieding verloopt over: <span id="countdown">03:00:00</span>
+          </p>
+          <button class="welcome-button">Reserveer Nu</button>
+          <button class="close-overlay">Nee bedankt</button>
+        </div>
+      </div>
+    </div>
+    <nav class="navbar">
+      <div class="container">
+        <a href="/" class="logo">Sarah van der Meer</a>
+        <ul class="nav-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about.html">Over Mij</a></li>
+          <li><a href="#diensten">Diensten</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+        <button class="mobile-menu" aria-label="Menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </button>
+      </div>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-parallax">
+        <div class="wave wave-1"></div>
+        <div class="wave wave-2"></div>
+        <div class="gradient-animation">
+          <div class="gradient-1"></div>
+          <div class="gradient-2"></div>
+          <div class="gradient-3"></div>
+          <div class="floating-words">
+            <span>Groei</span>
+            <span>Balans</span>
+            <span>Mindfulness</span>
+            <span>Harmonie</span>
+            <span>Potentieel</span>
+            <span>Innerlijke kracht</span>
+            <span>Zelfinzicht</span>
+            <span>Ontwikkeling</span>
+            <span>Rust</span>
+            <span>Vertrouwen</span>
+          </div>
+        </div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+          <h1 class="fade-in">Ontdek Je Beste Zelf</h1>
+          <p class="subtitle slide-up">
+            Persoonlijke coaching voor een gebalanceerd en vervullend leven
+          </p>
+          <a href="#contact" class="cta-button">Start Je Reis</a>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section id="diensten" class="services">
+        <div class="container">
+          <h2>Mijn Diensten</h2>
+          <div class="services-grid">
+            <div class="service-card">
+              <img
+                src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="1-op-1 Coaching"
+                class="service-image"
+              />
+              <h3>1-op-1 Coaching</h3>
+              <p>
+                Persoonlijke begeleiding op maat voor jouw doelen en
+                uitdagingen.
+              </p>
+            </div>
+            <div class="service-card">
+              <img
+                src="https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Groepssessies"
+                class="service-image"
+              />
+              <h3>Groepssessies</h3>
+              <p>
+                Inspirerende workshops in kleine groepen voor gedeelde groei.
+              </p>
+            </div>
+            <div class="service-card">
+              <img
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                alt="Online Programma's"
+                class="service-image"
+              />
+              <h3>Online Programma's</h3>
+              <p>
+                Flexibele coaching trajecten die je in je eigen tempo kunt
+                volgen.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <div class="audio-player">
+        <button
+          id="toggleAudio"
+          class="audio-toggle"
+          aria-label="Speel achtergrondmuziek"
+        >
+          <span class="audio-icon">🎵</span>
+        </button>
+        <audio id="bgMusic" loop>
+          <source src="audio/meditation.mp3" type="audio/mpeg" />
+        </audio>
+      </div>
+
+      <section id="contact" class="contact">
+        <div class="container">
+          <h2>Neem Contact Op</h2>
+          <form class="contact-form">
+            <div class="form-group">
+              <label for="name">Naam</label>
+              <input type="text" id="name" name="name" required />
+            </div>
+            <div class="form-group">
+              <label for="email">E-mail</label>
+              <input type="email" id="email" name="email" required />
+            </div>
+            <div class="form-group">
+              <label for="message">Bericht</label>
+              <textarea id="message" name="message" required></textarea>
+            </div>
+            <button type="submit" class="submit-button">Verstuur</button>
+          </form>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="footer-content">
+          <div class="footer-info">
+            <h3>Sarah van der Meer</h3>
+            <p>Personal Coach</p>
+            <p>Amsterdam, Nederland</p>
+          </div>
+          <div class="footer-links">
+            <h4>Quick Links</h4>
+            <ul>
+              <li><a href="/">Home</a></li>
+              <li><a href="/about.html">Over Mij</a></li>
+              <li><a href="#diensten">Diensten</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+          </div>
+          <div class="footer-social">
+            <h4>Volg Mij</h4>
+            <div class="social-links">
+              <a href="#" aria-label="Instagram">Instagram</a>
+              <a href="#" aria-label="LinkedIn">LinkedIn</a>
+            </div>
+          </div>
+        </div>
+        <div class="footer-bottom">
+          <p>&copy; 2024 Sarah van der Meer. Alle rechten voorbehouden.</p>
+        </div>
+      </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+  </body>
+</html>
