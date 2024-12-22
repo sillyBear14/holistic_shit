@@ -11,10 +11,11 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="css/style.css" />
+    <link rel="stylesheet" href="css/about.css" />
   </head>
   <body>
     <nav class="navbar">
-      <div class="container">
+      <div class="container glass-nav">
         <a href="/" class="logo">Sarah van der Meer</a>
         <ul class="nav-links">
           <li><a href="/">Home</a></li>
@@ -30,79 +31,114 @@
       </div>
     </nav>
 
-    <main>
-      <section class="about-hero">
-        <div class="container">
-          <h1 class="fade-in">Over Mij</h1>
-          <div class="about-grid">
-            <div class="about-image">
-              <img
-                src="https://images.unsplash.com/photo-1544717305-2782549b5136?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Sarah van der Meer"
-                class="profile-image"
-              />
+    <main class="about-container">
+      <!-- Hero Section -->
+      <section class="about-hero fade-in">
+        <div class="hero-content glass-card">
+          <div class="hero-image">
+            <img
+              src="https://images.unsplash.com/photo-1599447332412-6bc6830c815a"
+              alt="Sarah van der Meer"
+            />
+          </div>
+          <div class="hero-text">
+            <h1 class="gradient-text">Sarah van der Meer</h1>
+            <p class="lead-text">
+              Met meer dan 20 jaar ervaring in persoonlijke ontwikkeling en
+              mindfulness, help ik mensen hun innerlijke kracht te ontdekken en
+              hun leven bewuster te leven.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Story Section -->
+      <section class="about-story fade-in">
+        <div class="story-container glass-card">
+          <h2>Mijn Verhaal</h2>
+          <div class="story-content">
+            <p>
+              Mijn reis begon als psycholoog in het bedrijfsleven, waar ik zag
+              hoe stress en burn-out steeds meer impact hadden op mensen's
+              levens. Dit inspireerde mij om me te verdiepen in mindfulness en
+              holistische coaching.
+            </p>
+            <div class="quote-block">
+              <blockquote>
+                "In stilte vinden we de antwoorden die we in drukte missen."
+              </blockquote>
             </div>
-            <div class="about-content">
-              <p class="slide-up">
-                Als gediplomeerd life coach en mindfulness trainer help ik
-                mensen al meer dan 10 jaar om hun volledige potentieel te
-                bereiken. Mijn reis begon in het bedrijfsleven, waar ik merkte
-                dat veel mensen worstelden met werk-privé balans en persoonlijke
-                groei.
-              </p>
-              <p class="slide-up">
-                Met mijn achtergrond in psychologie en jarenlange ervaring in
-                coaching, bied ik een unieke combinatie van praktische tools en
-                diepgaand inzicht om jou te helpen je doelen te bereiken.
-              </p>
+            <p>
+              Vandaag deel ik mijn expertise door het combineren van
+              wetenschappelijk onderbouwde methoden met praktische mindfulness
+              technieken.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <!-- Experience Section -->
+      <section class="experience-section fade-in">
+        <div class="experience-container glass-card">
+          <h2>Mijn Expertise</h2>
+          <div class="experience-timeline">
+            <div class="timeline-item">
+              <div class="year">2003</div>
+              <div class="content">
+                <h3>Master Psychologie</h3>
+                <p>Universiteit van Amsterdam</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="year">2010</div>
+              <div class="content">
+                <h3>Mindfulness Certificering</h3>
+                <p>VMBN Level 2 Trainer</p>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="year">2015</div>
+              <div class="content">
+                <h3>Eigen Praktijk</h3>
+                <p>Holistische coaching & mindfulness</p>
+              </div>
             </div>
           </div>
         </div>
       </section>
 
-      <section class="philosophy">
-        <div class="container">
-          <h2>Mijn Filosofie</h2>
-          <div class="philosophy-grid">
-            <div class="philosophy-card">
-              <img
-                src="https://images.unsplash.com/photo-1499209974431-9dddcece7f88?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Balans vinden"
-              />
-              <h3>Holistische Aanpak</h3>
-              <p>
-                Ik geloof dat echte groei alleen mogelijk is wanneer we kijken
-                naar alle aspecten van je leven: werk, relaties, gezondheid en
-                persoonlijke ontwikkeling.
-              </p>
-            </div>
-            <div class="philosophy-card">
-              <img
-                src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
-                alt="Persoonlijke groei"
-              />
-              <h3>Duurzame Verandering</h3>
-              <p>
-                Samen werken we aan blijvende verandering door kleine,
-                consistente stappen te zetten die passen bij jouw leven en
-                doelen.
-              </p>
-            </div>
+      <!-- Values Section -->
+      <section class="about-values fade-in">
+        <div class="values-grid">
+          <div class="value-card glass-card">
+            <span class="value-icon">✧</span>
+            <h3>Authenticiteit</h3>
+            <p>Leven vanuit je ware zelf</p>
+          </div>
+          <div class="value-card glass-card">
+            <span class="value-icon">❋</span>
+            <h3>Bewustzijn</h3>
+            <p>Mindful in het moment</p>
+          </div>
+          <div class="value-card glass-card">
+            <span class="value-icon">✺</span>
+            <h3>Groei</h3>
+            <p>Continu ontwikkelen</p>
           </div>
         </div>
       </section>
 
-      <section class="credentials">
-        <div class="container">
-          <h2>Certificeringen & Ervaring</h2>
-          <div class="credentials-list">
-            <ul>
-              <li>Gecertificeerd Life Coach (ICF)</li>
-              <li>Master in Psychologie (Universiteit van Amsterdam)</li>
-              <li>Mindfulness Trainer (VMBN)</li>
-              <li>10+ jaar ervaring in persoonlijke coaching</li>
-            </ul>
-          </div>
+      <!-- Methodology Section -->
+      <section class="methodology-section fade-in">
+        <div class="methodology-grid"></div>
+      </section>
+
+      <!-- Contact CTA Section -->
+      <section class="contact-cta fade-in">
+        <div class="cta-container glass-card">
+          <h2>Samen op reis naar mindfulness?</h2>
+          <p>Laten we samen ontdekken hoe ik je kan helpen.</p>
+          <a href="#contact" class="cta-button">Plan een kennismaking</a>
         </div>
       </section>
     </main>

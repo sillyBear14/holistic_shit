@@ -13,6 +13,16 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <button class="zen-toggle" aria-label="Activeer Zen Modus">
+      <span class="zen-icon">✧</span>
+    </button>
+    <div class="breathing-circle">
+      <span class="breathe-text" data-phase="inhale">Inademen</span>
+      <span class="breathe-text" data-phase="hold">Vasthouden</span>
+      <span class="breathe-text" data-phase="exhale">Uitademen</span>
+    </div>
+    <div class="scroll-progress"></div>
+    <div class="noise-bg"></div>
     <div class="welcome-overlay">
       <div class="welcome-content">
         <div class="special-offer">
@@ -40,7 +50,7 @@
       </div>
     </div>
     <nav class="navbar">
-      <div class="container">
+      <div class="container glass-nav">
         <a href="/" class="logo">Sarah van der Meer</a>
         <ul class="nav-links">
           <li><a href="/">Home</a></li>
@@ -93,9 +103,9 @@
         <div class="container">
           <h2>Mijn Diensten</h2>
           <div class="services-grid">
-            <div class="service-card">
+            <div class="service-card glass-card">
               <img
-                src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1516450360452-9312f5e86fc7"
                 alt="1-op-1 Coaching"
                 class="service-image"
               />
@@ -105,9 +115,9 @@
                 uitdagingen.
               </p>
             </div>
-            <div class="service-card">
+            <div class="service-card glass-card">
               <img
-                src="https://images.unsplash.com/photo-1515169067868-5387ec356754?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1515169067868-5387ec356754"
                 alt="Groepssessies"
                 class="service-image"
               />
@@ -116,9 +126,9 @@
                 Inspirerende workshops in kleine groepen voor gedeelde groei.
               </p>
             </div>
-            <div class="service-card">
+            <div class="service-card glass-card">
               <img
-                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80"
+                src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f"
                 alt="Online Programma's"
                 class="service-image"
               />
@@ -146,9 +156,9 @@
       </div>
 
       <section id="contact" class="contact">
-        <div class="container">
+        <div class="container glass-container">
           <h2>Neem Contact Op</h2>
-          <form class="contact-form">
+          <form class="contact-form glass-form">
             <div class="form-group">
               <label for="name">Naam</label>
               <input type="text" id="name" name="name" required />
@@ -167,8 +177,24 @@
       </section>
     </main>
 
+    <div class="zen-quotes">
+      <p class="quote">Adem in vrede, adem uit stress</p>
+      <p class="quote">Elke stap is een nieuwe kans</p>
+      <p class="quote">Vind rust in het nu</p>
+      <p class="quote">Laat los wat je niet dient</p>
+      <p class="quote">Groei in je eigen tempo</p>
+    </div>
+
     <footer class="footer">
-      <div class="container">
+      <div class="footer-wave">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1440 320">
+          <path
+            fill="rgba(255, 139, 167, 0.1)"
+            d="M0,96L48,112C96,128,192,160,288,160C384,160,480,128,576,112C672,96,768,96,864,106.7C960,117,1056,139,1152,138.7C1248,139,1344,117,1392,106.7L1440,96L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
+          ></path>
+        </svg>
+      </div>
+      <div class="container glass-footer">
         <div class="footer-content">
           <div class="footer-info">
             <h3>Sarah van der Meer</h3>
@@ -196,7 +222,12 @@
           <p>&copy; 2024 Sarah van der Meer. Alle rechten voorbehouden.</p>
         </div>
       </div>
+      <button class="back-to-top" aria-label="Scroll naar boven">
+        <span class="back-to-top-icon">↑</span>
+      </button>
     </footer>
+
+    <div class="cursor-container"></div>
 
     <script src="js/main.js"></script>
   </body>

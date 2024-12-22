@@ -1,7 +1,9 @@
 :root {
   --primary: #ff8ba7;
-  --secondary: #33272a;
-  --accent: #594a4e;
+  --secondary: #786452;
+  --accent: #c4a69d;
+  --accent-warm: #dfc2b8;
+  --accent-soft: #f5e6e0;
   --background: #faf3f3;
   --white: #ffffff;
   --transition: all 0.3s ease;
@@ -154,19 +156,50 @@ body {
 .cta-button {
   display: inline-block;
   padding: 1rem 2rem;
-  background: var(--primary);
+  background: linear-gradient(45deg, var(--secondary), var(--accent));
+  backdrop-filter: blur(5px);
   color: var(--white);
   text-decoration: none;
   border-radius: 30px;
-  transition: var(--transition);
+  transition: all 0.5s ease;
   opacity: 0;
   transform: translateY(20px);
   animation: fadeInUp 1s ease forwards 0.6s;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 0 20px rgba(255, 139, 167, 0.2);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  letter-spacing: 1px;
+  font-weight: 300;
+  position: relative;
+  overflow: hidden;
+}
+
+.cta-button::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: 0.5s;
 }
 
 .cta-button:hover {
-  transform: translateY(-3px);
-  box-shadow: 0 5px 15px rgba(255, 139, 167, 0.3);
+  background: linear-gradient(45deg, var(--accent), var(--accent-warm));
+  box-shadow: 0 5px 15px rgba(196, 166, 157, 0.3);
+  border-color: rgba(255, 255, 255, 0.5);
+  text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+  letter-spacing: 2px;
+}
+
+.cta-button:hover::before {
+  left: 100%;
 }
 
 /* Services Section */
@@ -250,8 +283,8 @@ body {
 
 /* Footer */
 .footer {
-  background: var(--secondary);
-  color: var(--white);
+  background: transparent;
+  color: var(--secondary);
   padding: 4rem 0 2rem;
 }
 
@@ -263,19 +296,21 @@ body {
 }
 
 .footer a {
-  color: var(--white);
+  color: var(--secondary);
   text-decoration: none;
   transition: var(--transition);
 }
 
 .footer a:hover {
   color: var(--primary);
+  text-shadow: 0 0 10px rgba(255, 139, 167, 0.3);
 }
 
 .footer-bottom {
   text-align: center;
   padding-top: 2rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  border-top: 1px solid rgba(255, 139, 167, 0.2);
+  color: var(--accent);
 }
 
 /* Responsive Design */
@@ -452,8 +487,8 @@ body {
 /* Audio Player */
 .audio-player {
   position: fixed;
-  bottom: 2rem;
-  right: 2rem;
+  bottom: 30px;
+  right: 30px;
   z-index: 1000;
 }
 
@@ -806,11 +841,11 @@ body {
   position: absolute;
   top: 0;
   right: 0;
-  width: 40%;
+  width: 50%;
   height: 100%;
   overflow: hidden;
   z-index: 2;
-  opacity: 0.7;
+  opacity: 0.8;
 }
 
 .gradient-1,
@@ -826,30 +861,30 @@ body {
 
 .gradient-1 {
   background: radial-gradient(
-    circle at center,
+    circle at 30% center,
     rgba(255, 192, 203, 0.8) 0%,
     rgba(255, 182, 193, 0.5) 30%,
-    transparent 70%
+    transparent 100%
   );
   animation: gradient-move 15s ease-in-out infinite;
 }
 
 .gradient-2 {
   background: radial-gradient(
-    circle at center,
+    circle at 40% center,
     rgba(255, 139, 167, 0.8) 0%,
     rgba(255, 160, 180, 0.5) 30%,
-    transparent 70%
+    transparent 100%
   );
   animation: gradient-move 18s ease-in-out infinite reverse;
 }
 
 .gradient-3 {
   background: radial-gradient(
-    circle at center,
+    circle at 35% center,
     rgba(255, 218, 224, 0.8) 0%,
     rgba(255, 228, 234, 0.5) 30%,
-    transparent 70%
+    transparent 100%
   );
   animation: gradient-move 20s ease-in-out infinite;
 }
@@ -884,12 +919,14 @@ body {
 .floating-words span {
   position: absolute;
   font-family: "Playfair Display", serif;
-  color: rgba(255, 255, 255, 0.9);
+  color: var(--secondary);
   font-size: 1.5rem;
   opacity: 0;
   transform: translateY(20px);
-  text-shadow: 0 0 15px rgba(255, 255, 255, 0);
+  text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8),
+    -2px -2px 4px rgba(255, 255, 255, 0.8);
   transition: text-shadow 0.3s ease;
+  font-weight: 600;
 }
 
 .floating-words span:nth-child(1) {
@@ -928,21 +965,20 @@ body {
   100% {
     opacity: 0;
     transform: translateY(20px) scale(1);
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0);
-  }
-  5% {
-    opacity: 0;
-    transform: translateY(20px) scale(1);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.8),
+      -2px -2px 4px rgba(255, 255, 255, 0.8);
   }
   10% {
     opacity: 1;
     transform: translateY(0) scale(1.2);
-    text-shadow: 0 0 15px rgba(255, 255, 255, 0.3);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 0.9),
+      -2px -2px 4px rgba(255, 255, 255, 0.9);
   }
   20% {
     opacity: 1;
     transform: translateY(0) scale(1.4);
-    text-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+    text-shadow: 2px 2px 4px rgba(255, 255, 255, 1),
+      -2px -2px 4px rgba(255, 255, 255, 1);
   }
   25% {
     opacity: 0;
@@ -952,3 +988,580 @@ body {
 }
 
 /* JavaScript om woorden willekeurig te positioneren */
+
+/* Glass Effect Base Styles */
+.glass-effect {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.07);
+}
+
+/* Navbar Glass Effect */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Service Cards Glass Effect */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(196, 166, 157, 0.2);
+  transition: all 0.4s ease;
+}
+
+.glass-card:hover {
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.15);
+  transform: translateY(-10px);
+}
+
+/* Contact Form Glass Effect */
+.glass-form {
+  background: rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  padding: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.glass-form input,
+.glass-form textarea {
+  background: rgba(255, 255, 255, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  transition: all 0.3s ease;
+}
+
+.glass-form input:focus,
+.glass-form textarea:focus {
+  background: rgba(255, 255, 255, 0.9);
+  box-shadow: 0 0 20px rgba(255, 139, 167, 0.2);
+}
+
+/* Footer Glass Effect */
+.glass-footer {
+  background: rgba(255, 255, 255, 0.8);
+  backdrop-filter: blur(10px);
+  border-top: 1px solid rgba(255, 139, 167, 0.2);
+  box-shadow: 0 -5px 20px rgba(255, 139, 167, 0.1);
+}
+
+/* Hover effects for interactive elements */
+.glass-effect:hover {
+  background: rgba(255, 255, 255, 0.2);
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.1);
+}
+
+/* Breathing Circle */
+.breathing-circle {
+  position: fixed;
+  bottom: 30px;
+  left: 30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(196, 166, 157, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  animation: breathe 8s ease-in-out infinite;
+}
+
+.breathe-text {
+  position: absolute;
+  width: 100%;
+  text-align: center;
+  font-size: 1rem;
+  color: var(--secondary);
+  opacity: 0;
+  font-family: "Raleway", sans-serif;
+  font-weight: 300;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.breathe-text[data-phase="inhale"] {
+  animation: textFade 24s ease-in-out infinite;
+}
+
+.breathe-text[data-phase="hold"] {
+  animation: textFade 24s ease-in-out infinite 8s;
+}
+
+.breathe-text[data-phase="exhale"] {
+  animation: textFade 24s ease-in-out infinite 16s;
+}
+
+@keyframes textFade {
+  0%,
+  100% {
+    opacity: 0;
+  }
+  4%,
+  29% {
+    opacity: 0.8;
+  }
+  33%,
+  100% {
+    opacity: 0;
+  }
+}
+
+/* Zen Mode Toggle */
+.zen-toggle {
+  position: fixed;
+  top: 30px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 139, 167, 0.2);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  z-index: 1000;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(255, 139, 167, 0.2);
+}
+
+.zen-icon {
+  font-size: 1.2rem;
+  color: var(--white);
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.zen-toggle:hover {
+  background: rgba(255, 139, 167, 0.3);
+  box-shadow: 0 0 30px rgba(255, 139, 167, 0.4);
+}
+
+.zen-toggle:hover .zen-icon {
+  transform: rotate(180deg);
+}
+
+/* Scroll Progress */
+.scroll-progress {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--primary) var(--scroll, 0%),
+    transparent 0
+  );
+  z-index: 1001;
+}
+
+/* Zen Quotes */
+.zen-quotes {
+  position: fixed;
+  bottom: 40px;
+  right: 40px;
+  text-align: right;
+  z-index: 999;
+  width: 300px;
+}
+
+.quote {
+  position: absolute;
+  right: 0;
+  opacity: 0;
+  animation: quoteRotate 5s ease-in-out forwards;
+  font-family: "Playfair Display", serif;
+  color: var(--secondary);
+  font-size: 1rem;
+  text-shadow: 0 2px 10px rgba(255, 255, 255, 0.5);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  white-space: nowrap;
+  display: none;
+  border: 1px solid rgba(196, 166, 157, 0.2);
+  box-shadow: 0 4px 15px rgba(196, 166, 157, 0.1);
+}
+
+.quote.active {
+  display: block;
+}
+
+@keyframes quoteRotate {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Cursor Trail */
+.cursor-trail {
+  width: 20px;
+  height: 20px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 139, 167, 0.2) 0%,
+    rgba(255, 255, 255, 0) 70%
+  );
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  transition: all 0.15s ease;
+  z-index: 9999;
+}
+
+/* Noise Background */
+.noise-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
+  opacity: 0.02;
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Animations */
+@keyframes breathe {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+  25% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  50% {
+    transform: scale(1.2);
+    opacity: 0.7;
+  }
+  75% {
+    transform: scale(1);
+    opacity: 0.3;
+  }
+}
+
+@keyframes quoteRotate {
+  0%,
+  100% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  20% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  80% {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+}
+
+/* Zen Mode Styles */
+body.zen-mode .non-essential {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+body.zen-mode {
+  background: var(--background);
+}
+
+/* Markeer essentiële elementen die zichtbaar moeten blijven in zen-mode */
+.hero h1,
+.hero .subtitle,
+.cta-button,
+.breathing-circle,
+.zen-quotes {
+  transition: opacity 0.5s ease;
+}
+
+/* Verberg niet-essentiële elementen in zen-mode */
+body.zen-mode .navbar,
+body.zen-mode .services,
+body.zen-mode .contact,
+body.zen-mode .footer,
+body.zen-mode .welcome-overlay,
+body.zen-mode .audio-player {
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.5s ease;
+}
+
+.quote:nth-child(1) {
+  animation-delay: 0s;
+}
+.quote:nth-child(2) {
+  animation-delay: 3s;
+}
+.quote:nth-child(3) {
+  animation-delay: 6s;
+}
+.quote:nth-child(4) {
+  animation-delay: 9s;
+}
+.quote:nth-child(5) {
+  animation-delay: 12s;
+}
+
+/* Footer Styling Enhancements */
+.footer-links ul {
+  list-style: none;
+}
+
+.footer-links li {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.8rem;
+}
+
+.footer-links li::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 8px;
+  height: 8px;
+  background: var(--primary);
+  border-radius: 50%;
+  opacity: 0.7;
+  animation: pulseLight 2s ease-in-out infinite;
+}
+
+/* Verschillende timings voor elke bullet */
+.footer-links li:nth-child(2)::before {
+  animation-delay: 0.5s;
+}
+.footer-links li:nth-child(3)::before {
+  animation-delay: 1s;
+}
+.footer-links li:nth-child(4)::before {
+  animation-delay: 1.5s;
+}
+
+.footer h3,
+.footer h4 {
+  font-family: "Playfair Display", serif;
+  margin-bottom: 1.2rem;
+  position: relative;
+  display: inline-block;
+}
+
+.footer h3::after,
+.footer h4::after {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  left: 0;
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(90deg, var(--primary) 0%, transparent 100%);
+}
+
+.footer-social .social-links {
+  display: flex;
+  gap: 1rem;
+}
+
+.footer-social a {
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  background: rgba(255, 139, 167, 0.1);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  transition: all 0.3s ease;
+}
+
+.footer-social a:hover {
+  background: rgba(255, 139, 167, 0.2);
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(255, 139, 167, 0.2);
+}
+
+.footer-info p {
+  position: relative;
+  padding-left: 1.5rem;
+  margin-bottom: 0.5rem;
+}
+
+.footer-info p::before {
+  content: "✧";
+  position: absolute;
+  left: 0;
+  color: var(--primary);
+  opacity: 0.8;
+}
+
+@keyframes pulseLight {
+  0%,
+  100% {
+    transform: translateY(-50%) scale(1);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-50%) scale(1.5);
+    opacity: 0.3;
+  }
+}
+
+/* Footer Bottom Enhancement */
+.footer-bottom {
+  position: relative;
+  padding: 1.5rem 0;
+  text-align: center;
+  font-size: 0.9rem;
+}
+
+.footer-bottom::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 200px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    var(--primary) 50%,
+    transparent 100%
+  );
+}
+
+/* Footer Wave Animation */
+.footer-wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  line-height: 0;
+  transform: rotate(180deg);
+}
+
+.footer-wave svg {
+  position: relative;
+  display: block;
+  width: calc(100% + 1.3px);
+  height: 100px;
+}
+
+.footer-wave path {
+  animation: waveFlow 20s linear infinite;
+}
+
+@keyframes waveFlow {
+  0% {
+    transform: translateX(0);
+  }
+  50% {
+    transform: translateX(-50%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* Back to Top Button */
+.back-to-top {
+  position: fixed;
+  bottom: 100px;
+  right: 30px;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background: rgba(255, 139, 167, 0.3);
+  backdrop-filter: blur(5px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  cursor: pointer;
+  z-index: 1000;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 0 20px rgba(255, 139, 167, 0.3);
+}
+
+.back-to-top.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.back-to-top-icon {
+  color: var(--white);
+  font-size: 1.2rem;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.5);
+  transition: transform 0.3s ease;
+}
+
+.back-to-top:hover {
+  background: rgba(255, 139, 167, 0.4);
+  box-shadow: 0 0 30px rgba(255, 139, 167, 0.5);
+}
+
+.back-to-top:hover .back-to-top-icon {
+  transform: translateY(-3px);
+}
+
+/* Update gradients */
+.gradient-animation {
+  background: linear-gradient(
+    45deg,
+    var(--primary),
+    var(--accent-soft),
+    var(--accent),
+    var(--secondary)
+  );
+}
+
+/* Update buttons en hover states */
+.cta-button {
+  background: linear-gradient(45deg, var(--secondary), var(--accent));
+}
+
+.cta-button:hover {
+  background: linear-gradient(45deg, var(--accent), var(--accent-warm));
+}
+
+/* Update glasachtige effecten */
+.glass-card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(196, 166, 157, 0.2);
+}
+
+/* Update timeline en andere accenten */
+.timeline::before {
+  background: linear-gradient(
+    to bottom,
+    transparent,
+    var(--accent),
+    transparent
+  );
+}

@@ -157,4 +157,145 @@ document.addEventListener("DOMContentLoaded", () => {
   // Herpositioneer woorden elke 8 seconden
   setInterval(positionWords, 16000);
   positionWords(); // Initial positioning
+
+  // Cursor Trail Effect
+  function createCursorTrail() {
+    const cursorContainer = document.querySelector(".cursor-container");
+    const trail = document.createElement("div");
+    trail.className = "cursor-trail";
+    cursorContainer.appendChild(trail);
+
+    document.addEventListener("mousemove", (e) => {
+      trail.style.left = e.clientX + "px";
+      trail.style.top = e.clientY + "px";
+    });
+  }
+
+  // Scroll Progress
+  function updateScrollProgress() {
+    const scrollProgress = document.querySelector(".scroll-progress");
+    window.addEventListener("scroll", () => {
+      const height = document.documentElement.scrollHeight - window.innerHeight;
+      const scrolled = (window.scrollY / height) * 100;
+      scrollProgress.style.setProperty("--scroll", `${scrolled}%`);
+    });
+  }
+
+  // Breathing Circle
+  function initBreathingCircle() {
+    const circle = document.querySelector(".breathing-circle");
+    const texts = circle.querySelectorAll(".breathe-text");
+    let isAnimating = true;
+
+    circle.addEventListener("click", () => {
+      isAnimating = !isAnimating;
+      if (isAnimating) {
+        circle.style.animationPlayState = "running";
+        texts.forEach((text) => (text.style.animationPlayState = "running"));
+      } else {
+        circle.style.animationPlayState = "paused";
+        texts.forEach((text) => (text.style.animationPlayState = "paused"));
+      }
+    });
+
+    // Optioneel: voeg hover effect toe
+    circle.addEventListener("mouseenter", () => {
+      if (!isAnimating) {
+        circle.style.transform = "scale(1.1)";
+      }
+    });
+
+    circle.addEventListener("mouseleave", () => {
+      if (!isAnimating) {
+        circle.style.transform = "scale(1)";
+      }
+    });
+  }
+
+  // Zen Mode Toggle
+  function initZenMode() {
+    const zenToggle = document.querySelector(".zen-toggle");
+    zenToggle.addEventListener("click", () => {
+      document.body.classList.toggle("zen-mode");
+      // Optioneel: speel zachte overgang geluid
+    });
+  }
+
+  // Back to Top Button
+  function initBackToTop() {
+    const backToTop = document.querySelector(".back-to-top");
+
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 300) {
+        backToTop.classList.add("visible");
+      } else {
+        backToTop.classList.remove("visible");
+      }
+    });
+
+    backToTop.addEventListener("click", () => {
+      window.scrollTo({
+        top: 0,
+        behavior: "smooth",
+      });
+    });
+  }
+
+  // Quote Rotation
+  function initQuoteRotation() {
+    const quotes = document.querySelectorAll(".quote");
+    let currentQuote = 0;
+    let isFirstRun = true;
+
+    function showNextQuote() {
+      // Verwijder active class van alle quotes
+      quotes.forEach((quote) => {
+        quote.classList.remove("active");
+        quote.style.display = "none";
+      });
+
+      // Voeg active class toe aan huidige quote
+      quotes[currentQuote].classList.add("active");
+      quotes[currentQuote].style.display = "block";
+
+      // Start de animatie opnieuw
+      quotes[currentQuote].style.animation = "none";
+      quotes[currentQuote].offsetHeight; // Force reflow
+      quotes[currentQuote].style.animation =
+        "quoteRotate 5s ease-in-out forwards";
+
+      setTimeout(() => {
+        currentQuote = (currentQuote + 1) % quotes.length;
+        showNextQuote();
+      }, 5000);
+    }
+
+    // Zorg ervoor dat de eerste quote meteen zichtbaar is
+    if (isFirstRun && quotes.length > 0) {
+      quotes[0].style.display = "block";
+      quotes[0].classList.add("active");
+      isFirstRun = false;
+    }
+
+    showNextQuote();
+  }
+
+  // Initialize all features
+  createCursorTrail();
+  updateScrollProgress();
+  initBreathingCircle();
+  initZenMode();
+  initBackToTop();
+  initQuoteRotation();
+
+  const fadeInElements = document.querySelectorAll(".fade-in");
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("visible");
+      }
+    });
+  });
+
+  fadeInElements.forEach((el) => observer.observe(el));
 });
